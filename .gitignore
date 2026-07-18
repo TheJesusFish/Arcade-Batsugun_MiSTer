@@ -23,6 +23,12 @@
 *.sld
 /build_id.v
 /raizingpll.xml
+/rtl/raizingpll_sim.f
+/rtl/raizingpll_sim/
+/rtl/raizingpll.bsf
+/rtl/raizingpll.ppf
+/rtl/raizingpll.sip
+/rtl/raizingpll.spd
 
 # ModelSim, Verilator, and simulation output
 /sim/
