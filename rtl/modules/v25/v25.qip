@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: BSD-3-Clause
+#
+# Quartus include file for integrating the experimental V25 core into a MiSTer
+# project. Paths are relative to this QIP file.
+
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) v25_pkg.vhd]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) v25_timing_pkg.vhd]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) v25_reset_sync.vhd]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) v25_input_sync.vhd]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) v25_core.vhd]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) v25_bus_adapter.vhd]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) v25_chip.vhd]

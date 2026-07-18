@@ -1,0 +1,101 @@
+Device_Index,State_Index,Module_Path,Data_Type,Register_Name,Verilog_Type,Description
+1,0+,jt51.u_timers,module_instance,jt51_timers,module,Instance of jt51_timers
+2,0,jt51_timer,packed_registers,"last_load, flag, free_cnt","reg, reg, reg[4-1:0]","Packed registers: last_load, flag, free_cnt"
+2,1,jt51_timer,packed_registers,cnt,reg[CW-1:0],Packed registers: cnt
+2,0+,jt51_timers.timer_A,module_instance,jt51_timer,module,Instance of jt51_timer
+3,0,jt51_timer,packed_registers,"last_load, flag, free_cnt","reg, reg, reg[4-1:0]","Packed registers: last_load, flag, free_cnt"
+3,1,jt51_timer,packed_registers,cnt,reg[CW-1:0],Packed registers: cnt
+3,0+,jt51_timers.timer_B,module_instance,jt51_timer,module,Instance of jt51_timer
+4,0,jt51_lfo,packed_registers,"val, out2","reg[16-1:0], reg[16-1:0]","Packed registers: val, out2"
+4,1,jt51_lfo,packed_registers,"pm, am, cnt2","reg[8-1:0], reg[8-1:0], reg[15-1:0]","Packed registers: pm, am, cnt2"
+4,2,jt51_lfo,packed_registers,"saw_sign, integ_c, lfo_clk_latch, lfo_clk, cnt3_step, cnt3_clk, cnt2_load, bitcnt_rst, lfo_up_latch, cnt2_ov, cnt1_ov, cnt3, cnt1, bitcnt, out1","reg, reg, reg, reg, reg, reg, reg, reg, reg, reg[2-1:0], reg[2-1:0], reg[4-1:0], reg[4-1:0], reg[4-1:0], reg[7-1:0]","Packed registers: saw_sign, integ_c, lfo_clk_latch, lfo_clk, cnt3_step, cnt3_clk, cnt2_load, bitcnt_rst, lfo_up_latch, cnt2_ov, cnt1_ov, cnt3, cnt1, bitcnt, out1"
+4,3,jt51_lfo,packed_registers,"val_c, trig_sign","reg, reg","Packed registers: val_c, trig_sign"
+4,0+,jt51.u_lfo,module_instance,jt51_lfo,module,Instance of jt51_lfo
+5,0,jt51_pg,packed_registers,phase_base_VI,reg[20-1:0],Packed registers: phase_base_VI
+5,1,jt51_pg,packed_registers,phase_step_VII,reg[20-1:0],Packed registers: phase_step_VII
+5,2,jt51_pg,packed_registers,ph_VIII,reg[20-1:0],Packed registers: ph_VIII
+5,3,jt51_pg,packed_registers,ph_IX,reg[20-1:0],Packed registers: ph_IX
+5,4,jt51_pg,packed_registers,ph_X,reg[20-1:0],Packed registers: ph_X
+5,5,jt51_pg,packed_registers,phase_base_IV,reg[18-1:0],Packed registers: phase_base_IV
+5,6,jt51_pg,packed_registers,"keycode_II, phase_base_V","reg[14-1:0], reg[18-1:0]","Packed registers: keycode_II, phase_base_V"
+5,7,jt51_pg,packed_registers,"octave_III, dt1_offset_V, keycode_III, dt1_kf_III, phinc_addr_III","reg[4-1:0], reg[5-1:0], reg[5-1:0], reg[6-1:0], reg[10-1:0]","Packed registers: octave_III, dt1_offset_V, keycode_III, dt1_kf_III, phinc_addr_III"
+5,8,jt51_pg,packed_registers,"dt1_V, pow2ind_IV, dt1_kf_IV, dt1_IV, dt1_III","reg[3-1:0], reg[3-1:0], reg[3-1:0], reg[3-1:0], reg[3-1:0]","Packed registers: dt1_V, pow2ind_IV, dt1_kf_IV, dt1_IV, dt1_III"
+5,0+,jt51.u_pg,module_instance,jt51_pg,module,Instance of jt51_pg
+6,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+6,0+,jt51_pg.u_phsh,module_instance,jt51_sh,module,Instance of jt51_sh
+7,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+7,0+,jt51_pg.u_pgrstsh,module_instance,jt51_sh,module,Instance of jt51_sh
+8,0,jt51_eg,packed_registers,"eg_VII, eg_cnt","reg[10-1:0], reg[15-1:0]","Packed registers: eg_VII, eg_cnt"
+8,1,jt51_eg,packed_registers,"cfg_III, d1level_II, rate_V, rate_IV, eg_VIII","reg[5-1:0], reg[5-1:0], reg[6-1:0], reg[6-1:0], reg[10-1:0]","Packed registers: cfg_III, d1level_II, rate_V, rate_IV, eg_VIII"
+8,2,jt51_eg,packed_registers,"sum_up, step_VI, pg_rst_III, state_in_VI, state_in_V, state_in_IV, state_in_III, eg_cnt_base, cnt_V, rate_VI","reg, reg, reg, reg[2-1:0], reg[2-1:0], reg[2-1:0], reg[2-1:0], reg[2-1:0], reg[3-1:0], reg[5-1:0]","Packed registers: sum_up, step_VI, pg_rst_III, state_in_VI, state_in_V, state_in_IV, state_in_III, eg_cnt_base, cnt_V, rate_VI"
+8,0+,jt51.u_eg,module_instance,jt51_eg,module,Instance of jt51_eg
+9,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+9,0+,jt51_eg.u_egpadding,module_instance,jt51_sh,module,Instance of jt51_sh
+10,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+10,0+,jt51_eg.u_eg1sh,module_instance,jt51_sh,module,Instance of jt51_sh
+11,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+11,0+,jt51_eg.u_eg2sh,module_instance,jt51_sh,module,Instance of jt51_sh
+12,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+12,0+,jt51_eg.u_aroffsh,module_instance,jt51_sh,module,Instance of jt51_sh
+13,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+13,0+,jt51_eg.u_konsh,module_instance,jt51_sh,module,Instance of jt51_sh
+14,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+14,0+,jt51_eg.u_cntsh,module_instance,jt51_sh,module,Instance of jt51_sh
+15,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+15,0+,jt51_eg.u_statesh,module_instance,jt51_sh,module,Instance of jt51_sh
+16,0,jt51_op,packed_registers,"totalatten_XII, pm_preshift_II","reg[12-1:0], reg[15-1:0]","Packed registers: totalatten_XII, pm_preshift_II"
+16,1,jt51_op,packed_registers,"m1_II, exponent_XIII, phaselo_XI, mantissa_XIII","reg, reg[4-1:0], reg[8-1:0], reg[10-1:0]","Packed registers: m1_II, exponent_XIII, phaselo_XI, mantissa_XIII"
+16,0+,jt51.u_op,module_instance,jt51_op,module,Instance of jt51_op
+17,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+17,0+,jt51_op.prev1_buffer,module_instance,jt51_sh,module,Instance of jt51_sh
+18,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+18,0+,jt51_op.prevprev1_buffer,module_instance,jt51_sh,module,Instance of jt51_sh
+19,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+19,0+,jt51_op.prev2_buffer,module_instance,jt51_sh,module,Instance of jt51_sh
+20,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+20,0+,jt51_op.phasemod_sh,module_instance,jt51_sh,module,Instance of jt51_sh
+21,0,jt51_phrom,packed_registers,ph[31:0],reg[32-1:0],Packed registers: ph[31:0]
+21,1,jt51_phrom,packed_registers,ph[45:32],reg[14-1:0],Packed registers: ph[45:32]
+21,0+,jt51_op.u_phrom,module_instance,jt51_phrom,module,Instance of jt51_phrom
+22,0,jt51_exprom,packed_registers,exp[31:0],reg[32-1:0],Packed registers: exp[31:0]
+22,1,jt51_exprom,packed_registers,exp[44:32],reg[13-1:0],Packed registers: exp[44:32]
+22,0+,jt51_op.u_exprom,module_instance,jt51_exprom,module,Instance of jt51_exprom
+23,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+23,0+,jt51_op.out_padding,module_instance,jt51_sh,module,Instance of jt51_sh
+24,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+24,0+,jt51_op.shsignbit,module_instance,jt51_sh,module,Instance of jt51_sh
+25,0,jt51_noise,packed_registers,"mix, lfsr","reg[12-1:0], reg[16-1:0]","Packed registers: mix, lfsr"
+25,1,jt51_noise,packed_registers,"last_lfsr0, update, nfrq_met, cnt","reg, reg, reg, reg[5-1:0]","Packed registers: last_lfsr0, update, nfrq_met, cnt"
+25,0+,jt51.u_noise,module_instance,jt51_noise,module,Instance of jt51_noise
+26,0,jt51_acc,packed_registers,pre_left,reg[19-1:0],Packed registers: pre_left
+26,1,jt51_acc,packed_registers,pre_right,reg[19-1:0],Packed registers: pre_right
+26,2,jt51_acc,packed_registers,"xright, xleft","reg[16-1:0], reg[16-1:0]","Packed registers: xright, xleft"
+26,3,jt51_acc,packed_registers,sum_all,reg,Packed registers: sum_all
+26,0+,jt51.u_acc,module_instance,jt51_acc,module,Instance of jt51_acc
+27,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+27,0+,jt51_acc.u_acc,module_instance,jt51_sh,module,Instance of jt51_sh
+28,0,jt51_mmr,packed_registers,"lfo_freq, ch_din, value_A","reg[8-1:0], reg[8-1:0], reg[10-1:0]","Packed registers: lfo_freq, ch_din, value_A"
+28,1,jt51_mmr,packed_registers,"value_B, test_mode, reg_sel, op_din","reg[8-1:0], reg[8-1:0], reg[8-1:0], reg[8-1:0]","Packed registers: value_B, test_mode, reg_sel, op_din"
+28,2,jt51_mmr,packed_registers,"clr_flag_A, up_op, lfo_w, up_ch, busy_cnt, nfrq, lfo_pmd, lfo_amd","reg, reg[2-1:0], reg[2-1:0], reg[3-1:0], reg[5-1:0], reg[5-1:0], reg[7-1:0], reg[7-1:0]","Packed registers: clr_flag_A, up_op, lfo_w, up_ch, busy_cnt, nfrq, lfo_pmd, lfo_amd"
+28,3,jt51_mmr,packed_registers,"busy, up_tl, up_rl, up_pms, up_ks, up_kf, up_keyon, up_kc, up_dt2, up_dt1, up_d1l, up_amsen, ne, lfo_up, enable_irq_B, ct2, csm, clr_flag_B","reg, reg, reg, reg, reg, reg, reg, reg, reg, reg, reg, reg, reg, reg, reg, reg, reg, reg","Packed registers: busy, up_tl, up_rl, up_pms, up_ks, up_kf, up_keyon, up_kc, up_dt2, up_dt1, up_d1l, up_amsen, ne, lfo_up, enable_irq_B, ct2, csm, clr_flag_B"
+28,0+,jt51.u_mmr,module_instance,jt51_mmr,module,Instance of jt51_mmr
+29,0,jt51_reg,packed_registers,"zero, half, op31_no, op31_acc, cur","reg, reg, reg, reg, reg[5-1:0]","Packed registers: zero, half, op31_no, op31_acc, cur"
+29,0+,jt51_mmr.u_reg,module_instance,jt51_reg,module,Instance of jt51_reg
+30,0,jt51_kon,packed_registers,keyon_II,reg,Packed registers: keyon_II
+30,0+,jt51_reg.u_kon,module_instance,jt51_kon,module,Instance of jt51_kon
+31,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+31,0+,jt51_kon.u_konch,module_instance,jt51_sh,module,Instance of jt51_sh
+32,0+,jt51_reg.u_csr_op,module_instance,jt51_csr_op,module,Instance of jt51_csr_op
+33,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+33,0+,jt51_csr_op.u_reg0op,module_instance,jt51_sh,module,Instance of jt51_sh
+34,0:start+width-1,jt51_sh,array,bits,reg[stages-1:0][width-1:0],Array with width elements
+34,0+,jt51_csr_op.u_reg1op,module_instance,jt51_sh,module,Instance of jt51_sh
+35,0,jt51_reg_ch,packed_registers,"rl, ams_VII, pms, fb_II, con, kf, kc","reg[2-1:0], reg[2-1:0], reg[3-1:0], reg[3-1:0], reg[3-1:0], reg[6-1:0], reg[7-1:0]","Packed registers: rl, ams_VII, pms, fb_II, con, kf, kc"
+35,1:8,jt51_reg_ch,array,reg_ams,reg[2-1:0][8-1:0],Array with 8 elements
+35,9:unknown,jt51_reg_ch,array,reg_con,reg[3-1:0][8-1:0],Array with unknown size
+35,0+,jt51_reg.u_csr_ch,module_instance,jt51_reg_ch,module,Instance of jt51_reg_ch
+35,(((((9 + 8) + 8) + 8) + 8) + 8):unknown,jt51_reg_ch,array,reg_rl,reg[2-1:0][8-1:0],Array with unknown size
+35,(9 + 8):unknown,jt51_reg_ch,array,reg_fb,reg[3-1:0][8-1:0],Array with unknown size
+35,((9 + 8) + 8):unknown,jt51_reg_ch,array,reg_kc,reg[7-1:0][8-1:0],Array with unknown size
+35,(((9 + 8) + 8) + 8):unknown,jt51_reg_ch,array,reg_kf,reg[6-1:0][8-1:0],Array with unknown size
+35,((((9 + 8) + 8) + 8) + 8):unknown,jt51_reg_ch,array,reg_pms,reg[3-1:0][8-1:0],Array with unknown size

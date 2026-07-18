@@ -1,0 +1,12 @@
+#cpu
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/modules/fx68k/hdl/fx68k.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/modules/fx68k/hdl/fx68kAlu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/modules/fx68k/hdl/uaddrPla.sv
+set_global_assignment -name VERILOG_FILE rtl/modules/jtframe/hdl/cpu/jtframe_68kdma.v
+set_global_assignment -name VERILOG_FILE rtl/modules/jtframe/hdl/cpu/jtframe_68kdtack.v
+set_global_assignment -name VERILOG_FILE rtl/modules/jtframe/hdl/cpu/jtframe_68kdtack_cen.v
+set_global_assignment -name VERILOG_FILE rtl/modules/jtframe/hdl/cpu/jtframe_virq.v
+
+#sound
+set_global_assignment -name QIP_FILE rtl/modules/jt51/hdl/jt51.qip
+set_global_assignment -name QIP_FILE rtl/modules/jt6295/hdl/jt6295.qip

@@ -1,0 +1,31 @@
+Device_Index,State_Index,Module_Path,Data_Type,Register_Name,Verilog_Type,Description
+1,0,jt6295_timing,packed_registers,"cen_sr4b, cen_sr4, cen_sr32, cen_sr, cen_48k, base, cnt, cnt48","reg, reg, reg, reg, reg, reg[3-1:0], reg[6-1:0], reg[8-1:0]","Packed registers: cen_sr4b, cen_sr4, cen_sr32, cen_sr, cen_48k, base, cnt, cnt48"
+1,0+,jt6295.u_timing,module_instance,jt6295_timing,module,Instance of jt6295_timing
+2,0,jt6295_rom,packed_registers,"st, rom_addr","reg[8-1:0], reg[18-1:0]","Packed registers: st, rom_addr"
+2,1,jt6295_rom,packed_registers,"ctrl_ok, wait2, ctrl_dout, adpcm_dout","reg, reg[2-1:0], reg[8-1:0], reg[8-1:0]","Packed registers: ctrl_ok, wait2, ctrl_dout, adpcm_dout"
+2,0+,jt6295.u_rom,module_instance,jt6295_rom,module,Instance of jt6295_rom
+3,0,jt6295_ctrl,packed_registers,new_start,reg[18-1:0],Packed registers: new_start
+3,1,jt6295_ctrl,packed_registers,start_addr,reg[18-1:0],Packed registers: start_addr
+3,2,jt6295_ctrl,packed_registers,"new_stop, stop_addr","reg[10-1:0], reg[18-1:0]","Packed registers: new_stop, stop_addr"
+3,3,jt6295_ctrl,packed_registers,"addr_lsb, start, att, stop, new_att, ch, phrase","reg[3-1:0], reg[4-1:0], reg[4-1:0], reg[4-1:0], reg[4-1:0], reg[4-1:0], reg[7-1:0]","Packed registers: addr_lsb, start, att, stop, new_att, ch, phrase"
+3,4,jt6295_ctrl,packed_registers,"wrom, push, pull, cmd, last_wrn, st","reg, reg, reg, reg, reg, reg[3-1:0]","Packed registers: wrom, push, pull, cmd, last_wrn, st"
+3,0+,jt6295.u_ctrl,module_instance,jt6295_ctrl,module,Instance of jt6295_ctrl
+4,0,jt6295_serial,packed_registers,"pipe_en, pipe_data, pipe_att, busy, ack, ch","reg, reg[4-1:0], reg[4-1:0], reg[4-1:0], reg[4-1:0], reg[4-1:0]","Packed registers: pipe_en, pipe_data, pipe_att, busy, ack, ch"
+4,0+,jt6295.u_serial,module_instance,jt6295_serial,module,Instance of jt6295_serial
+5,0:start+WIDTH-1,jt6295_sh_rst,array,bits,reg[STAGES-1:0][WIDTH-1:0],Array with WIDTH elements
+5,0+,jt6295_serial.u_cnt,module_instance,jt6295_sh_rst,module,Instance of jt6295_sh_rst
+6,0,jt6295_adpcm,packed_registers,"dn_III, dn_II","reg[12-1:0], reg[12-1:0]","Packed registers: dn_III, dn_II"
+6,1,jt6295_adpcm,packed_registers,"qn_II, dn_IV","reg[12-1:0], reg[12-1:0]","Packed registers: qn_II, dn_IV"
+6,2,jt6295_adpcm,packed_registers,"qn_IV, qn_III","reg[12-1:0], reg[12-1:0]","Packed registers: qn_IV, qn_III"
+6,3,jt6295_adpcm,packed_registers,"snd_VI, qn_V","reg[12-1:0], reg[12-1:0]","Packed registers: snd_VI, qn_V"
+6,4,jt6295_adpcm,packed_registers,"delta_idx_II, delta_idx_I, gain_VI, sound","reg[6-1:0], reg[6-1:0], reg[7-1:0], reg[12-1:0]","Packed registers: delta_idx_II, delta_idx_I, gain_VI, sound"
+6,5,jt6295_adpcm,packed_registers,"sign_V, sign_IV, sign_III, sign_II, factor_IV, factor_III, factor_II, idx_inc_II, delta_idx_IV, delta_idx_III","reg, reg, reg, reg, reg, reg[3-1:0], reg[3-1:0], reg[6-1:0], reg[6-1:0], reg[6-1:0]","Packed registers: sign_V, sign_IV, sign_III, sign_II, factor_IV, factor_III, factor_II, idx_inc_II, delta_idx_IV, delta_idx_III"
+6,0+,jt6295.u_adpcm,module_instance,jt6295_adpcm,module,Instance of jt6295_adpcm
+7,0:start+WIDTH-1,jt6295_sh_rst,array,bits,reg[STAGES-1:0][WIDTH-1:0],Array with WIDTH elements
+7,0+,jt6295_adpcm.u_enable,module_instance,jt6295_sh_rst,module,Instance of jt6295_sh_rst
+8,0:start+WIDTH-1,jt6295_sh_rst,array,bits,reg[STAGES-1:0][WIDTH-1:0],Array with WIDTH elements
+8,0+,jt6295_adpcm.u_att,module_instance,jt6295_sh_rst,module,Instance of jt6295_sh_rst
+9,0:start+WIDTH-1,jt6295_sh_rst,array,bits,reg[STAGES-1:0][WIDTH-1:0],Array with WIDTH elements
+9,0+,jt6295_adpcm.u_sound,module_instance,jt6295_sh_rst,module,Instance of jt6295_sh_rst
+10,0,jt6295_acc,packed_registers,"sum, acc","reg[14-1:0], reg[14-1:0]","Packed registers: sum, acc"
+10,0+,jt6295.u_acc,module_instance,jt6295_acc,module,Instance of jt6295_acc

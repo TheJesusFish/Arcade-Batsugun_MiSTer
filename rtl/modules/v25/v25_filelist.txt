@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: BSD-3-Clause
+rtl/v25_pkg.vhd
+rtl/v25_timing_pkg.vhd
+rtl/v25_reset_sync.vhd
+rtl/v25_input_sync.vhd
+rtl/v25_core.vhd
+rtl/v25_bus_adapter.vhd
+rtl/v25_chip.vhd
