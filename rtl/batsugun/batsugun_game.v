@@ -2545,21 +2545,35 @@ wire [15:0] cpu_video_flags = {
     ever_cpu_unmap
 };
 wire load_done = &load_seen;
-// Keep the ROM-load guard, but accept both official program revisions. The
-// first three reset-vector words are shared; Special Version changes word 3.
-wire load_program_signature =
-    (load_word0 == 16'h0011) &&
-    (load_word1 == 16'h0000) &&
-    (load_word2 == 16'h0003) &&
-    ((load_word3 == 16'hbc60) || (load_word3 == 16'hc460));
+// All official MAME sets share the same initial stack pointer. Their reset
+// entry points differ, so keep the guard exact without rejecting valid clones.
+function program_vector_valid;
+    input [15:0] word0;
+    input [15:0] word1;
+    input [15:0] word2;
+    input [15:0] word3;
+    begin
+        program_vector_valid =
+            (word0 == 16'h0011) &&
+            (word1 == 16'h0000) &&
+            (word2 == 16'h0003) &&
+            ((word3 == 16'hbc60) || // batsugun
+             (word3 == 16'hb888) || // batsuguna
+             (word3 == 16'hbc4c) || // batsugunb
+             (word3 == 16'hb890) || // batsugunc
+             (word3 == 16'hc460));  // batsugunsp
+    end
+endfunction
+
+wire load_program_signature = program_vector_valid(
+    load_word0, load_word1, load_word2, load_word3
+);
 wire load_match = (load_seen == 8'hff) &&
                   load_program_signature;
 wire rom_probe_done = &rom_probe_seen;
-wire rom_probe_program_signature =
-    (rom_probe_word0 == 16'h0011) &&
-    (rom_probe_word1 == 16'h0000) &&
-    (rom_probe_word2 == 16'h0003) &&
-    ((rom_probe_word3 == 16'hbc60) || (rom_probe_word3 == 16'hc460));
+wire rom_probe_program_signature = program_vector_valid(
+    rom_probe_word0, rom_probe_word1, rom_probe_word2, rom_probe_word3
+);
 assign rom_probe_match = (rom_probe_seen == 8'hff) &&
                          rom_probe_program_signature;
 wire rom_probe_area = render_lhbl && render_lvbl &&
@@ -7082,12 +7096,12 @@ always @(posedge clk) begin
                 default: begin
                     rom_probe_word3 <= rom_slot_dout;
                     rom_probe_seen[7:6] <= 2'b11;
-                    rom_probe_passed <=
-                        (rom_probe_word0 == 16'h0011) &&
-                        (rom_probe_word1 == 16'h0000) &&
-                        (rom_probe_word2 == 16'h0003) &&
-                        ((rom_slot_dout == 16'hbc60) ||
-                         (rom_slot_dout == 16'hc460));
+                    rom_probe_passed <= program_vector_valid(
+                        rom_probe_word0,
+                        rom_probe_word1,
+                        rom_probe_word2,
+                        rom_slot_dout
+                    );
                 end
             endcase
             rom_probe_idx <= rom_probe_idx + 2'd1;

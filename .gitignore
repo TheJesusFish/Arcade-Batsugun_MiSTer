@@ -7,8 +7,11 @@
 /releases/*
 !/releases/*.rbf
 !/releases/*.mra
+!/releases/alternatives/
+!/releases/alternatives/*.mra
 /work/
 /work_*/
+/modelsim.ini
 *.qws
 *.qdb
 *.qtl
