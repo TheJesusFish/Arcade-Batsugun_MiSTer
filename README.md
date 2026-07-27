@@ -29,7 +29,7 @@ MAME models Batsugun as:
   [ijor/fx68k](https://github.com/ijor/fx68k)
 
 - YM2151-compatible sound core:
-  [Jotego jt51](https://github.com/jotego/jtcores/tree/master/modules/jt51)
+  [ika-musume IKAOPM](https://github.com/ika-musume/IKAOPM)
 
 - OKIM6295-compatible ADPCM sound core:
   [Jotego jt6295](https://github.com/jotego/jtcores/tree/master/modules/jt6295)

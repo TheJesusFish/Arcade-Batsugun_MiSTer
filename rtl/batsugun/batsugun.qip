@@ -10,6 +10,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE rtl/modules/v25_compact/batsugun_
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/modules/v25_compact/batsugun_z8086.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/batsugun/batsugun_v25_cpu.sv
 set_global_assignment -name MISC_FILE rtl/modules/v25_compact/ucode.hex
+set_global_assignment -name VERILOG_FILE rtl/batsugun/batsugun_opm.v
 set_global_assignment -name VERILOG_FILE rtl/batsugun/batsugun_sound_mixer.v
 set_global_assignment -name VERILOG_FILE rtl/batsugun/batsugun_sound.v
 set_global_assignment -name VERILOG_FILE rtl/batsugun/batsugun_inputs.v

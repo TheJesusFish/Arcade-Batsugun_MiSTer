@@ -386,8 +386,8 @@ always @(posedge clk_sound) begin
     end
 end
 
-// JT51 implements much of its state with LUT shift registers. Keep reset
-// asserted for a complete 32-slot P1 rotation while the clock enables run.
+// Keep reset asserted for 64 YM master-clock edges so every IKAOPM pipeline
+// is initialized before the V25 is released.
 reg [5:0] ym_reset_count = 6'd0;
 always @(posedge clk_sound or posedge sound_reset) begin
     if (sound_reset)
@@ -551,29 +551,21 @@ end
 
 wire [7:0] ym_dout;
 wire ym_sample;
-wire signed [15:0] ym_left;
-wire signed [15:0] ym_right;
 wire signed [15:0] ym_xleft;
 wire signed [15:0] ym_xright;
 
-jt51 u_ym2151 (
+batsugun_opm u_ym2151 (
     .rst        ( ym_reset      ),
     .clk        ( clk_sound     ),
     .cen        ( ym_cen        ),
-    .cen_p1     ( ym_cen_p1     ),
     .cs_n       ( ym_cs_n       ),
     .wr_n       ( ym_wr_n       ),
     .a0         ( ym_host_a0    ),
     .din        ( ym_host_data  ),
     .dout       ( ym_dout       ),
-    .ct1        (               ),
-    .ct2        (               ),
-    .irq_n      (               ),
     .sample     ( ym_sample     ),
-    .left       ( ym_left       ),
-    .right      ( ym_right      ),
-    .xleft      ( ym_xleft      ),
-    .xright     ( ym_xright     )
+    .left       ( ym_xleft      ),
+    .right      ( ym_xright     )
 );
 
 wire [7:0] oki_dout;
