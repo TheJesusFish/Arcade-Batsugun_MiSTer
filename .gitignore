@@ -2,13 +2,6 @@
 /db/
 /incremental_db/
 /output_files/*
-!/output_files/*.rbf
-!/output_files/*.mra
-/releases/*
-!/releases/*.rbf
-!/releases/*.mra
-!/releases/alternatives/
-!/releases/alternatives/*.mra
 /work/
 /work_*/
 /modelsim.ini
