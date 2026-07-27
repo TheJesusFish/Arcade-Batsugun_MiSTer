@@ -62,14 +62,6 @@ set v25_cpu_keepers [get_keepers {emu:emu|batsugun_game:u_game|batsugun_sound:u_
 set_multicycle_path -setup -from $v25_cpu_keepers -to $v25_cpu_keepers 5
 set_multicycle_path -hold  -from $v25_cpu_keepers -to $v25_cpu_keepers 4
 
-# JT51's phase generator advances only on cen_p1, which this core asserts once
-# every 56 master clocks. Keep the exception at phase-generator destinations;
-# the memory-mapped host interface and the rest of JT51 remain single-cycle.
-set jt51_keepers [get_keepers {emu:emu|batsugun_game:u_game|batsugun_sound:u_sound|jt51:u_ym2151|*}]
-set jt51_pg_keepers [get_keepers {emu:emu|batsugun_game:u_game|batsugun_sound:u_sound|jt51:u_ym2151|jt51_pg:u_pg|*}]
-set_multicycle_path -setup -from $jt51_keepers -to $jt51_pg_keepers 2
-set_multicycle_path -hold  -from $jt51_keepers -to $jt51_pg_keepers 1
-
 # The visible pixel outputs and debug pixel snapshots are clock-enable registers.
 # hcnt/vcnt and the renderer settle across the 14-cycle pixel cadence, and these
 # registers only sample on clkdiv==13. Keep this exception narrow so CPU/SDRAM
